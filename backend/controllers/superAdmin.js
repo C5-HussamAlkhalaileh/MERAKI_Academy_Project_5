@@ -48,11 +48,13 @@ const getAllRequests = (req, res) => {
     "SELECT firstName,lastName,restaurantName,state, email, requests.id  FROM users INNER JOIN requests ON requests.owner_id =users.id AND  requests.state=? ";
 
   connection.query(query, ["In Progress"], (err, result) => {
+  
     if (err) {
       return res.status(500).json({
         success: false,
         massage: "Server Error",
         err,
+        requests: [],
       });
     }
     if (result.length) {
@@ -65,6 +67,7 @@ const getAllRequests = (req, res) => {
       res.status(404).json({
         success: true,
         message: "No Request",
+        requests: [],
       });
     }
   });
@@ -136,7 +139,7 @@ const acceptRequest = (req, res) => {
     res.status(200).json({
       success: true,
       massage: "Request State Change",
-      result
+      result,
     });
   });
 };
@@ -191,7 +194,7 @@ const editUser = (req, res) => {
   });
 };
 const deleteRestaurant = async (req, res) => {
-  const {id} = req.body;
+  const { id } = req.body;
 
   const query = `UPDATE restaurants SET is_deleted=1 WHERE id=?`;
 
@@ -220,5 +223,5 @@ module.exports = {
   getAllOwners,
   getAllRestaurants,
   editUser,
-  deleteRestaurant
+  deleteRestaurant,
 };

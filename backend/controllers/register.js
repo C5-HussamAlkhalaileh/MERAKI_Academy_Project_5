@@ -7,13 +7,14 @@ const saltRounds = 10;
 const register = async (req, res) => {
   
   const role_id = req.params.roleId;
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, email, password ,gender} = req.body;
 
   const encryptedPassword = await bcrypt.hash(password, saltRounds);
 
-  const query = `INSERT INTO users (firstName, lastName,  email, password, role_id) VALUES (?,?,?,?,?)`;
-  const data = [firstName, lastName, email, encryptedPassword, role_id];
+  const query = `INSERT INTO users (firstName, lastName,  email, password,gender, role_id) VALUES (?,?,?,?,?,?)`;
+  const data = [firstName, lastName, email, encryptedPassword, gender,role_id];
   connection.query(query, data, (err, result) => {
+    
     if (err) {
       return res.status(409).json({
         success: false,

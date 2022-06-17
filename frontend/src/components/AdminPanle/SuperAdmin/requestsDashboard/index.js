@@ -16,13 +16,6 @@ export const Requests = () => {
   const { superAdminPanel, auth } = useSelector((state) => {
     return state;
   });
-
-  useEffect(() => {
-    (async () => {
-      const data = await SuperAdmin.getAllRequests({ token: auth.token });
-      dispatch(setRequests([...data.requests]));
-    })();
-  }, []);
   const createButton = ({ onClick, text }) => {
     return <button onClick={onClick}>{text}</button>;
   };
@@ -60,7 +53,7 @@ export const Requests = () => {
     );
   };
 
-  const updateUser = async (state) => {
+  const updateRequest = async (state) => {
     await SuperAdmin.acceptRequest({
       requestId: currentRequest.id,
       state: state,
@@ -83,7 +76,7 @@ export const Requests = () => {
             {createButton({
               text: "Yes",
               onClick: async () => {
-                updateUser(state);
+                updateRequest(state);
                 setIsDeleteDialogShown(false);
                 setIsAcceptDialogShown(false);
               },
@@ -91,17 +84,6 @@ export const Requests = () => {
             {createButton({
               text: "Cancel",
               onClick: async () => {
-                await SuperAdmin.acceptRequest({
-                  requestId: currentRequest.id,
-                  state: "Accepted",
-                  token: auth.token,
-                });
-                const requests = [...superAdminPanel.requests];
-                requests[currentIndex] = {
-                  ...requests[currentIndex],
-                  state: "Accepted",
-                };
-                dispatch(setRequests(requests));
                 setIsDeleteDialogShown(false);
                 setIsAcceptDialogShown(false);
               },
@@ -111,6 +93,7 @@ export const Requests = () => {
       </div>
     );
   };
+
   return (
     <div>
       {isDeleteDialogShown ? (
@@ -141,7 +124,7 @@ export const Requests = () => {
           <h4>{"restaurant".toUpperCase()}</h4>
           <h4>ACTIONS</h4>
         </div>
-        {superAdminPanel.requests.length ? (
+        {superAdminPanel.requests? (
           superAdminPanel.requests.map((request, index) => {
             return createRow(request, index);
           })

@@ -57,6 +57,7 @@ export class SuperAdmin {
       const response = await axios.get(`${hostUrl}/superAdmin/requests`, {
         headers: { authorization: `Bearer ${token}` },
       });
+
       return response.data;
     } catch (error) {
       return {
@@ -71,12 +72,14 @@ export class SuperAdmin {
       const response = await axios.get(`${hostUrl}/superAdmin/users`, {
         headers: { authorization: `Bearer ${token}` },
       });
+      
       return response.data;
     } catch (error) {
       return {
         success: false,
         massage: "Server Error",
         error,
+        users:[]
       };
     }
   }
@@ -133,7 +136,7 @@ export class SuperAdmin {
     try {
       const response = await axios.put(
         `${hostUrl}/superAdmin/update/user`,
-        {...user},
+        { ...user },
         {
           headers: { authorization: `Bearer ${token}` },
         }
@@ -141,7 +144,7 @@ export class SuperAdmin {
       return response.data;
     } catch (error) {
       return {
-        success:false,
+        success: false,
         massage: error,
       };
     }

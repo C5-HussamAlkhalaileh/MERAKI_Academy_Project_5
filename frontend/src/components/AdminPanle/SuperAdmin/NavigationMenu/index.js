@@ -8,15 +8,21 @@ import react, { useEffect, useState } from "react";
 import { SuperAdmin } from "../../../../controllers/superAdmin";
 import { setRequests, setUsers } from "../../../../redux/reducers/superAdmin";
 
+import { User } from "../../../../controllers/user";
+import { setlogout } from "../../../../redux/reducers/auth";
+import { useNavigate } from "react-router-dom";
+
+
 export const NavigationMenu = ({setIsUsersShown}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { superAdminPanel, auth } = useSelector((state) => {
     return state;
   });
 
   const userArea = ({
-    name = "Khaled",
-    imgUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/347px-Lionel_Messi_20180626.jpg",
+    name = User.userName,
+    imgUrl = User.imgUr,
   }) => {
     return (
       <div id="user-img-div">
@@ -57,7 +63,7 @@ export const NavigationMenu = ({setIsUsersShown}) => {
         text: "Requests",
         icon: <BiGitPullRequest />,
         onClick:async () => {
-          const {requests} = await SuperAdmin.getAllRequests({token:auth.token});
+          const {requests} =await SuperAdmin.getAllRequests({token:auth.token});
           setIsUsersShown(1);
           dispatch(setRequests(requests))
         },
@@ -71,7 +77,10 @@ export const NavigationMenu = ({setIsUsersShown}) => {
           dispatch(setRequests(restaurants))
         },
       })}
-      <button id="logout-btn">
+      <button  onClick = {()=>{
+        dispatch(setlogout());
+        navigate("/")
+      }}id="logout-btn">
         <div id="logout-div">
           <BiLogOut />
           <h4>LogOut</h4>

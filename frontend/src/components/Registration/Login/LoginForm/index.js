@@ -7,8 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setIsSignUpFormShown,
   setlogin,
+  setShowLoginForm,
 } from "../../../../redux/reducers/auth";
 
+import { setidUser } from "../../../../redux/reducers/User";
+import { FcGoogle } from "react-icons/fc";
+import { User } from "../../../../controllers/user";
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => {
@@ -58,20 +62,68 @@ export const LoginForm = () => {
         email,
         password,
       });
+      User.id = response.userId;
+      User.userName = response.userName;
+      User.imgUrl = response.imgUrl;
+      User.roleId = response.roleId;
+     await localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: User.id,
+          userName: User.userName,
+          imgUrl: User.imgUrl,
+          roleId: User.roleId,
+        })
+      );
+     
+      dispatch(setidUser({ userId: response.userId }));
 
       dispatch(setlogin(response.token));
       if (response.message !== "Login Successful") {
         setErrors([...errors, response.message]);
-      }else{
-        navigate("/")
+      } else {
+        dispatch(setShowLoginForm());
+        switch (User.roleId) {
+          case 1:
+            navigate(`/superAdminPanel/${User.userName}/${User.imgUrl}`);
+            break;
+          case 4:
+            navigate("/");
+            break;
+          default:
+            navigate(`/ownerPanel/${User.userName}/${User.imgUrl}`);
+            break;
+        }
       }
     } else {
       setErrors(errors);
     }
   };
+  const createButton = ({ text, onClick, bkc, color }) => {
+    return (
+      <button
+        className="login-btn"
+        style={{ backgroundColor: bkc, color: color }}
+        onClick={onClick}
+      >
+        {text}
+      </button>
+    );
+  };
 
   return (
     <div id="login-form-email-password-div">
+      <div id="signup--exit-button">
+        <button
+          onClick={() => {
+            dispatch(setShowLoginForm(false));
+          }}
+        >
+          X
+        </button>
+      </div>
+      <p id="login-label">LOGIN</p>
+      <hr />
       {createInput({
         placeholder: "Email",
         type: "text",
@@ -85,20 +137,29 @@ export const LoginForm = () => {
         setState: setPassword,
       })}
       <ErrorsDiv errors={errors} />
-      <div>
-        <button id="login-button" onClick={login}>
-          Login
-        </button>
-      </div>
-      <hr />
-      <div id="create-new-account-button">
-        <button
-          onClick={() => {
-            dispatch(setIsSignUpFormShown());
-          }}
-        >
-          Create New Account
-        </button>
+      <div id="btns-div-login">
+        {createButton({
+          text: "Login",
+          onClick: login,
+          bkc: "orange",
+          color: "black",
+        })}
+        <h5>OR</h5>
+        {createButton({
+          text: "Create New Account",
+          onClick: () => {
+            dispatch(setIsSignUpFormShown(true));
+          },
+          color: "white",
+        })}
+        <div id="google-div">
+          <FcGoogle />
+          {createButton({
+            text: "Login With Google",
+            onClick: () => {},
+            color: "white",
+          })}
+        </div>
       </div>
     </div>
   );

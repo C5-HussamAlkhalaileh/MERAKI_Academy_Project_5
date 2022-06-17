@@ -5,7 +5,10 @@ import { ErrorsDiv } from "./ErrorsDiv";
 import "./style.css";
 import { Gender } from "./GenderDiv";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsSignUpFormShown } from "../../../redux/reducers/auth";
+import {
+  setIsSignUpFormShown,
+  setShowLoginForm,
+} from "../../../redux/reducers/auth";
 export const RegisterComponent = ({
   superAdminRegister = false,
   setIsRegisterShown,
@@ -22,6 +25,7 @@ export const RegisterComponent = ({
   const { auth } = useSelector((state) => {
     return state;
   });
+  
   const buildAlertDialog = ({ bgColor, color, text, text2 }) => {
     setTimeout(() => {
       setIsDialogShown(false);
@@ -81,15 +85,19 @@ export const RegisterComponent = ({
         lastName,
         email,
         password,
-        role,
+        gender,
+        role: superAdminRegister ? role : 1,
       });
-    
+
       if (serverError === "Email already taken") {
         setErrors([...errors, "Email already taken"]);
       } else {
         setIsDialogShown(true);
-        dispatch(setIsSignUpFormShown());
-        setIsRegisterShown(false);
+        dispatch(setIsSignUpFormShown(false));
+        dispatch(setShowLoginForm(false));
+        if (superAdminRegister) {
+          setIsRegisterShown(false);
+        }
       }
     } else {
       setErrors(errors);
@@ -111,7 +119,8 @@ export const RegisterComponent = ({
         <div id="signup--exit-button">
           <button
             onClick={() => {
-              dispatch(setIsSignUpFormShown());
+              dispatch(setIsSignUpFormShown(false));
+              dispatch(setShowLoginForm(false));
               setIsRegisterShown(false);
             }}
           >
@@ -119,9 +128,10 @@ export const RegisterComponent = ({
           </button>
         </div>
 
-        <h1>Sign Up</h1>
-        <h4> it's quick and easy.</h4>
+        <h1>CREATE ACCOUNT</h1>
+
         <hr />
+
         <div id="register-username-div">
           {createInput({
             placeholder: "First Name",
@@ -129,6 +139,7 @@ export const RegisterComponent = ({
             key: "FirstName",
             setState: setFirstName,
           })}
+
           {createInput({
             placeholder: "Last Name",
             type: "text",
@@ -162,7 +173,16 @@ export const RegisterComponent = ({
         <Gender setGender={setGender} errors={errors} setErrors={setErrors} />
         <ErrorsDiv errors={errors} />
         <div id="signup-button-div">
-          <button onClick={signUp}>Sign Up</button>
+          <button
+            onClick={signUp}
+            style={
+              !superAdminRegister
+                ? { backgroundColor: "orange", color: "black" }
+                : { backgroundColor: "green", color: "white" }
+            }
+          >
+            Sign Up
+          </button>
         </div>
       </div>
     </div>

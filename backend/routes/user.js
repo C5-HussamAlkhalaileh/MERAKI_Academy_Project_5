@@ -10,6 +10,9 @@ const {
   deleteMealFromCart,
   getRestaurantById,
   senOrder,
+  UpdateAdress,
+  getAdressByUserId,
+  getSortRestuarnts
 } = require("../controllers/user");
 
 
@@ -32,6 +35,8 @@ userRouter.get("/", getAllRestaurants);
 // get (params)
 userRouter.get("/name/:name", getRestaurantByName);
 
+// get (params)
+userRouter.get("/category/:category", getSortRestuarnts);
 
 
 // get (  params )
@@ -39,6 +44,9 @@ userRouter.get("/:restaurant_id",getMealByRestaurant);
 
 // get ( params )
 userRouter.get("/id/:id", getRestaurantById);
+
+// get (params)
+userRouter.get("/address/:id", getAdressByUserId );
 
 //...........................................................
 //todo  post method
@@ -50,8 +58,12 @@ userRouter.post("/:meal_id",authentication,addMealToCart);
 userRouter.get("/res/:restaurant_id",  getMealByRestaurant)
 
 
+
+
+
+
 //post 
-userRouter.post("/sent/:meal_id",authentication,senOrder);
+userRouter.post("/sent/:userId",senOrder);
 
 
 
@@ -59,8 +71,8 @@ userRouter.post("/sent/:meal_id",authentication,senOrder);
 userRouter.delete("/delete/:meal_id",authentication,deleteMealFromCart);
 
 
-
-
+//Update (params methods)
+userRouter.put("/:id",UpdateAdress);
 
 
 

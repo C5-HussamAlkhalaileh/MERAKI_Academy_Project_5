@@ -1,0 +1,518 @@
+
+
+html,
+body {
+    max-width: 100%;
+    /* overflow-x: hidden; */
+}
+
+.completeOrder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color:rgb(191,186,182); */
+    background-color:rgb(238,238,238);
+}
+
+.order {
+    width: 70vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(255,255,255);
+    /* background-color:rgb(251,250,251); */
+    /* border: 4px solid rgb(14, 11, 11); */
+    position: relative;
+    left: 15vw;
+
+
+    text-align: start;
+
+    padding: 60px;
+}
+
+
+.h2_order{
+    color: #212121;
+    font-size: 27px;
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+
+
+.size{
+
+}
+/*...........summaryOrder..................*/
+
+
+.summaryOrder{
+
+
+    border: 4px solid rgb(238,238,238);
+}
+.divSummary {
+    height: 10vh;
+    border-bottom: 4px solid rgb(238,238,238);
+    padding: 10px;
+    /* background-color: darkmagenta; */
+}
+.orderinformation{
+    padding: 10px;
+    /* background-color: darkgoldenrod; */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.orderinformationtwo{
+    display: flex;
+    flex-direction: row;
+    /* gap:20px; */
+    /* background-color: cornsilk; */
+    background-color:rgb(238,248,290);
+}
+
+.restaauranttName{
+    font-size: 24px;
+    color: #212121;
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+
+
+
+.items {
+    width: 35vw;
+    /* background-color: crimson; */
+    font-size: 25px;
+    color: #212121;
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+.title_tow {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width:25vw;
+
+
+    font-size: 25px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+  
+}
+.h2{
+    font-size: 25px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+.orderinformationthree{
+    /* background-color: darkgreen; */
+    position: relative;
+    top:10px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.mealItems {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+
+.div_return_map {
+    display: flex;
+    flex-direction: row;
+    /* background-color: cornsilk; */
+
+
+}
+.NameMeal {
+    width: 35vw;
+    font-size: 20px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+    /* background-color: rgb(125, 139, 0); */
+}
+.insted__div_return_map {
+    width: 25vw;
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+
+
+    position: relative;
+    left: 9px;
+padding: 10px;
+
+}
+.h3_Pri{
+    position: relative;
+   left: 20px;
+}
+.h3_quntity {
+    position: relative;
+    /* left: 40vw; */
+}
+
+.h3_price {
+    position: relative;
+    /* left: 45vw; */
+}
+
+.h3_totalprice {
+    position: relative;
+    /* left: 45vw; */
+}
+
+.sumprice {
+    position: relative;
+    left: 60vw;
+}
+
+
+
+/*..... location      ..................                ............*/
+
+.location {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+   /* width: 40vw; */
+    /* background-color: darkred; */
+    border: 4px solid rgb(238,238,238);
+   
+
+}
+.Enterh2_order{
+    display: flex;
+    flex-direction: row;
+   
+    border-bottom: 4px solid rgb(238,238,238);
+    padding: 10px;
+}
+.Enter{
+    width: 538px;
+    border-right: 4px solid rgb(238,238,238);
+    /* background-color: crimson; */
+}
+.locationTow{
+    display: flex;
+    flex-direction: row;
+    /* background-color: cornflowerblue; */
+    padding: 10px;
+}
+.inputLocation {
+    width: 43vw;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    border-right: 4px solid rgb(238,238,238);
+}
+
+.inputtag{
+    height:30px;
+    width:13vw;
+}
+.cityandarea {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+
+.Number {
+    /* width: 35vw; */
+    height:25px;
+    width:29.3vw;
+}
+/* .divColorMessage{
+    padding: 20px;
+} */
+.messageColor{
+    /* padding: 10px; */
+    color: rgb(160, 23, 23);
+    position: relative;
+    left: 20px;
+}
+
+/*.....  past location      ..................                ............*/
+.userPastLocation {
+    width: 30vw;
+    /* background-color: darkgreen; */
+}
+.imgadresss {
+    width: 8vw;
+    height: 18vh;
+    opacity: 0.5;
+    position: relative;
+    left: 8vw;
+    bottom: 18px;
+}
+
+
+
+.pastlocationmessage{
+    position: relative;
+    left: 60px;
+    top:60px;
+    font-size: 18px;
+    opacity: 0.6;
+    /* color: #212121; */
+    /* font-weight: 400!important;
+    font-family: open_sanssemibold; */
+
+
+}
+.divimageee{
+    display: flex;
+    flex-direction: column;
+    /* background-color: crimson; */
+
+}
+/*......................*/
+.div45 {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    
+}
+.h2userLocation{
+    position: relative;
+    left: 30px;
+    font-size: 16px;
+    color: #212121;
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+
+
+.iftrue {
+    width: 180px;
+    height: 150px;
+    /* background-color: crimson; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    position: relative;
+    left: 20px;
+}
+.h2h2h2333{
+    width: 140px;
+    
+    font-size: 18px;
+    color: #212121;
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+
+.selelctadresss {
+
+    display: flex;
+    flex-direction:column;
+    gap: 15px;
+
+    border: 4px solid rgb(238,238,238);
+}
+.Selecth2_order{
+    padding: 10px;
+    border-bottom: 4px solid rgb(238,238,238);
+
+}
+.divnewAdress{
+    /* width: 20px; */
+    /* background-color: darkorchid; */
+}
+.inputSelect{
+    width: 40px;
+    /* height: 80px; */
+}
+
+
+
+
+
+
+
+/*..... Payment      ..................                ............*/
+
+.Payment{
+
+    /* background-color: darkorange; */
+    border: 4px solid rgb(238,238,238);
+    display: flex;
+    flex-direction: column;
+
+}
+.PaymentOne{
+    padding: 10px;
+    border-bottom: 4px solid rgb(238,238,238);
+}
+.Paymentwo{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    /* gap: 10px; */
+}
+.Paymenttow_One{
+    display: flex;
+    flex-direction: column;
+}
+.HowPayment{
+    width: 36vw;
+    /* border-right: 4px solid rgb(238,238,238); */
+    display: flex;
+    flex-direction: column;
+    gap:15px
+
+
+}
+
+/*..... Cart       ..................                ............*/
+.cartVisah3{
+
+    font-size: 15px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+
+}
+.divImageeee{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.inputCardNumber{
+    width: 18vw;
+    height: 2vw;
+}
+.inputmounth {
+    width: 5vw;
+    height: 2vw;
+}
+
+.verification {
+    width: 6vw;
+    height: 32px;
+}
+.divcreditCard{
+    padding: 10px;
+    background-color: rgb(231, 216, 216);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cartimage{
+    width: 115px;
+    height: 40px;
+}
+.divCreditCard_two_two{
+    display: flex;
+    flex-direction: row;
+    gap:55px
+}
+
+/*.............completOrder.. (place order)............*/
+
+.divdivTotal{
+    display: flex;
+    flex-direction: row;
+    /* gap: 180px; */
+    position: relative;
+    left: 20px;
+}.divTotalOrder{
+    /* border-left: 4px solid rgb(238,238,238); */
+    display: flex;
+    flex-direction: column;
+    gap: 5Px;
+}
+.h2h2Total{
+    width: 220px;
+    /* background-color: crimson; */
+    font-size: 18px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+.h3h3h3total{
+    font-size: 15px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+}
+
+.Tax{
+        border-bottom: 4px solid rgb(238,238,238);
+}
+
+.PlaceOrder{
+    width: 18vw;
+    height: 5vh;
+
+    font-size: 25px;
+    /* color: #212121; */
+    font-weight: 400!important;
+    font-family: open_sanssemibold;
+
+background-color: rgb(147, 199, 92);
+position: relative;
+    left: 20px;
+
+}
+
+.divDivdiv{
+    border-left: 4px solid rgb(238,238,238);
+    /* background-color: aqua; */
+    /* width: 40vw; */
+}
+
+
+
+.instedModel{
+    /* padding: 40px; */
+    display: block;
+    width:60vh;
+    height: 20vh;
+    background-color: rgb(212, 147, 147);
+
+
+    position: relative;
+
+    /* bottom: 30vh;  */
+
+}
+
+.divdivModels{
+    position: relative;
+    left: 20vw;
+    bottom: 60vh;
+}
+
+.h2h2PleaseCheck{
+    position: relative;
+    left: 30px;
+    top: 50px;
+}
+.CloseButton{
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 160px;
+    top: 70px;
+}
+.CloseButton:hover{
+    background-color: crimson;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 160px;
+    top: 70px;
+}

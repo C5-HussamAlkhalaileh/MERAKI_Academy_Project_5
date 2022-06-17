@@ -1,89 +1,131 @@
-.AllRestarnts{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    /* top:4vh;
-     */
-
-     gap: 20px;
+#restaurants-div {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 24% 24% 24% 24%;
+  gap: 1.1%;
 }
-.AllAllRestarntsShow{
-    display: flex;
-    flex-direction: row;
+#rest-card-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  box-shadow: 0px 0px 3px 1px var(--third-color);
+  height: 220px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
 }
-
-
-.AllRestarnts_A{
-    width: 5vw;
-}
-.AllRestarnts_C{
-    width: 5vw;
-}
-.AllRestarnts_B{
-    width: 85vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-.All_B_eachRestarant{
-    width:400px;
-    height: 188px;
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid rgb(214, 202, 202);
-    /* border-radius: 10px; */
-    /* border:inset #B0B8B4; */
-    background-color: rgb(255,255,255);
-    
-    
-}
-.All_B_eachRestarant:hover{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid rgb(214, 202, 202);
-    /* border-radius: 10px; */
-    /* border-width: 18px; */
-    /* border:inset #B0B8B4; */
-    transform: scale(1.1);
-}
-.logo{
-    width:396px;
-    height:145px;
-  
+#rest-card-div:hover {
+  transform: scale(1.1);
+  z-index: 10;
 }
 
-.divLogo{
-    width: 400px;
-    height: 18vh;
-    /* display: flex;
-    flex-direction: row;
-    */
-    
-    background-color: crimson;
+#rest-card-div img {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 180px;
+  margin: 2px;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+  border-radius: 10px;
 }
-.All_h2{
-    margin-top: 6px;
-    font-weight: 550;
-    font-size: 20px;
-    color: #000000;
-    font-family: UberMoveText, sans-serif;
+#rest-card-div h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  text-shadow: 0px 0px 0.5px black;
+}
 
+.first-restaurant-div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  height: 100vh;
+  background: linear-gradient(
+    var(--first-color),
+    rgb(233, 207, 157),
+    rgb(243, 177, 54)
+  );
+}
 
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-};
-.All_h2Categorry{
-    /* font-weight: 550; */
-    /* font-size: 15px;
-    color: #000000;
-    font-family: UberMoveText, sans-serif; */
-    color: #545454;
-    font-size: 18px;
-    font-weight: normal;
-    font-family: UberMoveText, sans-serif;
-    
-    
+.Continert {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  gap: 20px;
+}
+.Continer_A img {
+  box-shadow: 1px 1px 1px 1px black;
+  border-radius: 20px;
+}
+.Continer_A h3 {
+  color: var(--third-color);
+  text-shadow: 0px 1px 1px black;
+}
 
+.Continer_A_A {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+  text-align: start;
+}
+.imgCategory {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  position: relative;
+  left: 15px;
+  cursor: pointer;
+}
+.imgCategory:hover {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  transform: scale(1.1);
+}
+.DivimgCategory {
+  width: 100px;
+  border-radius: 50px;
+}
+.DivimgCategory:hover {
+  width: 100px;
+  background-color: var(--second-color);
+  border-radius: 50px;
+  transform: scale(1.1);
+}
+.h3h3NameCategory {
+  margin-top: 5px;
+  text-align: center;
+}
+#pagination-div {
+  display: flex;
+  justify-content: start;
+  width: fit-content;
+  border-radius: 5px;
+  background-color: black;
+}
+#pagination-div button {
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--third-color);
+  padding: 20px;
+  border: 0;
+}
+#pagination-div button:hover {
+  background-color: var(--first-color);
+  color: black;
+  border-radius: 1px;
+}
+#border {
+  height: 100%;
+  width: 0.5px;
+  background-color: white;
 }

@@ -1,0 +1,96 @@
+.AllRestarnts{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* top:4vh;
+     */
+
+     gap: 20px;
+}
+.SortResturants{
+    display: flex;
+    flex-direction: row;
+    /* background-color: crimson; */
+    position: relative;
+    top:20px
+}
+
+
+.SortRestarnts_A{
+    width: 5vw;
+    /* background-color: chartreuse; */
+}
+
+
+.SortRestarnts_C{
+    width: 5vw;
+}
+.SortRestarnts_B{
+    width: 85vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    /* background-color: chocolate; */
+}
+.SortDivOne_one{
+    width:400px;
+    height: 188px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(214, 202, 202);
+    /* border-radius: 10px; */
+    /* border:inset #B0B8B4; */
+    background-color: rgb(255,255,255);
+    
+    
+}
+.All_B_eachRestarant:hover{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(214, 202, 202);
+    /* border-radius: 10px; */
+    /* border-width: 18px; */
+    /* border:inset #B0B8B4; */
+    transform: scale(1.1);
+}
+.logo{
+    width:396px;
+    height:145px;
+  
+}
+
+.divLogo{
+    width: 400px;
+    height: 18vh;
+    /* display: flex;
+    flex-direction: row;
+    */
+    
+    background-color: crimson;
+}
+.All_h2{
+    margin-top: 6px;
+    font-weight: 550;
+    font-size: 20px;
+    color: #000000;
+    font-family: UberMoveText, sans-serif;
+
+
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+};
+.All_h2Categorry{
+    /* font-weight: 550; */
+    /* font-size: 15px;
+    color: #000000;
+    font-family: UberMoveText, sans-serif; */
+    color: #545454;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: UberMoveText, sans-serif;
+    
+    
+
+}

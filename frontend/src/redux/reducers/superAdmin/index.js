@@ -6,6 +6,8 @@ const superAdminReducer = createSlice({
     users: [],
     requests: [],
     restaurants: [],
+    meals: [],
+    orders: [],
   },
   reducers: {
     // action.payload : [requests]
@@ -20,9 +22,15 @@ const superAdminReducer = createSlice({
     setRestaurants: (state, action) => {
       state.restaurants = action.payload;
     },
+    setMeals: (state, action) => {
+      state.meals = action.payload;
+    },
+    setOrders: (state, action) => {
+      state.orders = action.payload;
+    },
   },
 });
 
-export const { setRequests, setUsers, setRestaurants } =
+export const { setRequests, setUsers, setRestaurants, setMeals, setOrders } =
   superAdminReducer.actions;
 export default superAdminReducer.reducer;

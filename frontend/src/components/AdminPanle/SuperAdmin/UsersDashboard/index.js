@@ -19,12 +19,7 @@ export const Users = () => {
     return state;
   });
 
-  useEffect(() => {
-    (async () => {
-      const data = await SuperAdmin.getAllUsers({ token: auth.token });
-      dispatch(setUsers([...data.users]));
-    })();
-  }, []);
+  
   const createButton = ({ onClick, text }) => {
     return <button onClick={onClick}>{text}</button>;
   };

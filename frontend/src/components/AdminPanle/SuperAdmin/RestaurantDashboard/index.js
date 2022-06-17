@@ -1,5 +1,6 @@
 import react, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Owner } from "../../../../controllers/owner";
 import { SuperAdmin } from "../../../../controllers/superAdmin";
 import {
   setRequests,
@@ -8,7 +9,7 @@ import {
 } from "../../../../redux/reducers/superAdmin";
 import "./style.css";
 
-export const Restaurants = () => {
+export const Restaurants = ({isOwner=false}) => {
   const dispatch = useDispatch();
   const [isDeleteDialogShown, setIsDeleteDialogShown] = useState(false);
   const [currentIndex, setCurrentIndex] = useState({});
@@ -18,13 +19,10 @@ export const Restaurants = () => {
   const { superAdminPanel, auth } = useSelector((state) => {
     return state;
   });
-
   useEffect(() => {
-    (async () => {
-      const data = await SuperAdmin.getAllRestaurants({ token: auth.token });
-      dispatch(setRestaurants([...data.restaurants]));
-    })();
+    console.log(superAdminPanel.restaurants);
   }, []);
+
   const createButton = ({ onClick, text }) => {
     return <button onClick={onClick}>{text}</button>;
   };
@@ -52,13 +50,21 @@ export const Restaurants = () => {
   };
 
   const updateRestaurant = async () => {
-    await SuperAdmin.deleteRestaurant({
-      id:currentRestaurant.id,
-      token: auth.token,
-    });
-    const restaurants = [...superAdminPanel.restaurants]
-    restaurants.splice(currentIndex,1)
-    dispatch(setRequests(restaurants));
+    if(isOwner){
+      await Owner.deleteRestaurant({
+        id: currentRestaurant.id,
+        token: auth.token,
+      });
+    }else{
+      await SuperAdmin.deleteRestaurant({
+        id: currentRestaurant.id,
+        token: auth.token,
+      });
+    }
+    
+    const restaurants = [...superAdminPanel.restaurants];
+    restaurants.splice(currentIndex, 1);
+    dispatch(setRestaurants(restaurants));
   };
   const deleteDialog = ({ title, text }) => {
     return (
@@ -107,7 +113,7 @@ export const Restaurants = () => {
           <h4>ACTIONS</h4>
         </div>
         {superAdminPanel.restaurants.length ? (
-          superAdminPanel.requests.map((restaurant, index) => {
+          superAdminPanel.restaurants.map((restaurant, index) => {
             return createRow(restaurant, index);
           })
         ) : (

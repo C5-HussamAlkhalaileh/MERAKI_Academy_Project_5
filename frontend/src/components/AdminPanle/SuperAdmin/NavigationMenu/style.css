@@ -1,7 +1,9 @@
 #nav-menu-bar {
   background-color: rgb(34, 35, 36);
   width: 40vw;
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 300px;
+  padding: 2px;
   color: white;
 }
 #title-nav-bar {
@@ -29,7 +31,7 @@
   display: flex;
   padding: 2px;
   align-items: center;
-
+  font-size: 120%;
   background-color: rgb(72, 74, 78);
   padding: 10px;
 }
@@ -53,12 +55,14 @@
   padding: 10px;
   background-color: rgb(48, 51, 55);
   text-align: start;
+  
 }
 #logout-btn {
   border: 0px;
   width: 100%;
   background-color: rgb(48, 51, 55);
   color: white;
+
   cursor: pointer;
 }
 

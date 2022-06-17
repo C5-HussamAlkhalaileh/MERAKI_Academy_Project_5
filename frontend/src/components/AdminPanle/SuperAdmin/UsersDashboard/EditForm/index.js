@@ -111,7 +111,7 @@ export const EditForm = ({ user = {}, setIsEditFormShown }) => {
       ) : (
         <></>
       )}
-      <div id="signup-form-inner">
+      <div id="create-request-form-inner">
         <div id="signup--exit-button">
           <button
             onClick={() => {
@@ -122,8 +122,8 @@ export const EditForm = ({ user = {}, setIsEditFormShown }) => {
           </button>
         </div>
 
-        <h1>Update </h1>
-        <h4> it's quick and easy.</h4>
+        <h1>UPDATE USER </h1>
+       
         <hr />
         <div id="register-username-div">
           {createInput({

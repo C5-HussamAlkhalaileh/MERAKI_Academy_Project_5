@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./style.css";
 import { AiOutlineMenu } from "react-icons/ai";
+import { User } from "../../../../controllers/user";
 
 //AiOutlineMenu
 export const NavigationBarPanel = ({setHideMenu ,hideMenu }) => {
   const userArea = ({
-    name = "Khaled",
-    imgUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Lionel_Messi_20180626.jpg/347px-Lionel_Messi_20180626.jpg",
+    name = User.userName,
+    imgUrl = User.imgUr,
   }) => {
     return (
       <div id="user-img2-div">
